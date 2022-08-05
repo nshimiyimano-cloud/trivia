@@ -19,6 +19,8 @@ class QuizView extends Component {
     };
   }
 
+
+  // response will returned on front end when you click on play menu to playquiz
   componentDidMount() {
     $.ajax({
       url: `/categories`, //TODO: update request URL
