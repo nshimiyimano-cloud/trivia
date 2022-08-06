@@ -8,7 +8,6 @@ from sqlalchemy import cast, String, desc
 import json
 from operator import or_
 import os
-from unicodedata import category
 
 from flask import Flask, request, abort, jsonify, request,render_template
 
@@ -283,7 +282,7 @@ def postquiz():
 
     try:
         current_category=request.get_json()['quiz_category']['type']['id']
-        previous_questions=request.get_json()['previous_questions']   
+        previous_questions=request.get_json()['previous_questions'] 
     
         question=Question.query.filter(Question.category == current_category and Question.id.not_in(previous_questions)).first()
         formatted_question = question.format()
